@@ -1,0 +1,19 @@
+.desc{
+    width: 100%;
+    height: 150px;
+}
+
+h3{
+    color: rgb(71, 71, 71);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#btnAddNota, .btnSalva{
+    background-image: linear-gradient(to right, #ff75e1, #378eff);
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+.titulo{
+    background-image: linear-gradient(to right, #ff75e1, #378eff);
+}

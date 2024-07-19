@@ -1,0 +1,37 @@
+.inps:focus{
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.corpo, .login{
+    margin-top: 5%;
+}
+
+.inps{
+    width: 300px;
+    height: 35px;
+}
+
+h1, .login{
+    color: rgb(71, 71, 71);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.fixed-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px; /* Ajuste conforme necessário */
+}
+
+.lgn{
+    border-radius: 30px;
+    border: 2px solid rgba(165, 15, 185, 0.623);
+    width: 100px;
+    height: 35px;
+    background-image: linear-gradient(to right, #ff75e1, #378eff);
+    color: white;
+    border: 1px solid #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
