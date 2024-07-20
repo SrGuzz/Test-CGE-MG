@@ -1,4 +1,4 @@
-const URLuser = 'http://localhost:8080/user';
+const URLuser = 'https://test-cge-mg.onrender.com/user';
 
 function salvarNovo(){
     const name = document.getElementById('nomeCriar').value

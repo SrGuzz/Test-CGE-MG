@@ -1,4 +1,4 @@
-const URLnotas = "http://localhost:8080/notas";
+const URLnotas = "https://test-cge-mg.onrender.com/notas";
 var user = JSON.parse(localStorage.getItem("user"));
 var notas = [];
 var notaAtual = null;
@@ -313,7 +313,7 @@ function salvaPerfil(){
         password: newPassword
     }
 
-    fetch("http://localhost:8080/user/" + user.id, {
+    fetch("https://test-cge-mg.onrender.com/user/" + user.id, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
