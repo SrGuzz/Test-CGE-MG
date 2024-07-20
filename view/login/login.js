@@ -1,4 +1,5 @@
 const URLuser = 'https://test-cge-mg.onrender.com/user';
+const regex = /^[^\s]+@[^\s]+\.[^\s]+$/;
 
 function salvarNovo(){
     const name = document.getElementById('nomeCriar').value
@@ -15,12 +16,8 @@ function salvarNovo(){
     }
 
     const email = document.getElementById('emailCriar').value
-    if(email == ''){
-        document.getElementById('emailCriarError').innerText = 'Email é obrigatório';
-        return;
-    }
-    else if(email.length < 3){
-        document.getElementById("emailCriarError").innerText = 'Email deve ter no mínimo 3 caracteres';
+    if(!regex.test(email)){
+        document.getElementById('emailCriarError').innerText = 'Email invalido!';
         return;
     }
     else{
@@ -54,6 +51,8 @@ function salvarNovo(){
         document.getElementById('repeteSenhaError').innerText = '';
     }
 
+    document.getElementById('loadingCriar').style.display = 'block';
+
     const user = {
         name: name,
         email: email,
@@ -69,25 +68,43 @@ function salvarNovo(){
     })
     .then(response => {
         if(response.ok){
+            document.getElementById('loadingCriar').style.display = 'none';
             alert('Usuário cadastrado com sucesso');
             window.location.href = '../login/login.html';
-        } else {
+        } else if(response.status == 500){
+            document.getElementById('loadingCriar').style.display = 'none';
+            document.getElementById('emailCriarError').innerText = 'Email já cadastrado!';
+        }
+        else {
             alert('Erro ao cadastrar usuário');
         }
     })
 }
 
 async function login(){
+    
     const email = document.getElementById('email').value
-    const password = document.getElementById('password').value
-
-    if(email == '' || password == ''){
-        document.getElementById('erroSenha').innerText = 'Email e senha são obrigatórios';
+    if(!regex.test(email)){
+        document.getElementById('erroSenha').innerText = 'Email invalido';
         return;
     }
     else{
         document.getElementById('erroSenha').innerText = '';
     }
+    
+    const password = document.getElementById('password').value
+    if(password == ''){
+        document.getElementById('erroSenha').innerText = 'Senha é obrigatória';
+        return;
+    }
+    else if(password.length < 8){
+        document.getElementById('erroSenha').innerText = 'Senha deve ter no mínimo 8 caracteres';
+        return;
+    }
+    else{
+        document.getElementById('erroSenha').innerText = '';
+    }
+    
     document.getElementById('loading').style.display = 'block';
     const request = {
         username: email,

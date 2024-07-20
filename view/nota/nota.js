@@ -26,7 +26,7 @@ async function getNotas(URLnotas){
 function exibeNotas(notas){
     const notasDiv = document.getElementById('notas');
     notasDiv.innerHTML = '';
-    document.getElementById('divQTD').innerHTML = `<h5 class="fs-6">Olá ${user.name.split(' ')[0]}!<br>${notas.length} notas cadastrdas.</h5>`;
+    document.getElementById('divQTD').innerHTML = `<h5 class="fs-6">Olá ${user.name.split(' ')[0]}!<br>${notas.length} notas cadastradas.</h5>`;
 
     if(notas.length == 0){
         notasDiv.innerHTML = '<h5 class="text-center mt-5">Nenhuma nota cadastrada!</h5>';
@@ -35,7 +35,7 @@ function exibeNotas(notas){
 
     for(let nota of notas){
         notasDiv.innerHTML += `
-            <div class="col-4 ps-2 pe-2 mb-2">
+            <div class="col-12 col-md-6 col-lg-4 ps-2 pe-2 mb-2">
                 <div class="card shadow-sm">
                     <div class="text-center pt-2 border-bottom rounded-top titulo">
                         <h4 class="text-white" id="titulo${nota.id}">${nota.titulo}</h4>
@@ -79,7 +79,6 @@ addEventListener('click', function (event) {
 
 //adicionana uma nova nota
 function adicionaNota(){
-
     const titulo = document.getElementById('titulo').value;
     if(titulo == ''){
         document.getElementById('tituloError').innerText = 'Campo obrigatório';
@@ -129,6 +128,8 @@ function adicionaNota(){
         if(response.ok){
             getNotas(URLnotas);
             document.getElementById('fechaAdd').click();
+            document.getElementById('titulo').value = '';
+            document.getElementById('descricao').value = '';
         } else {
             alert('Erro ao adicionar nota');
         }
