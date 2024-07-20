@@ -88,7 +88,7 @@ async function login(){
     else{
         document.getElementById('erroSenha').innerText = '';
     }
-
+    document.getElementById('loading').style.display = 'block';
     const request = {
         username: email,
         password: password
@@ -104,10 +104,12 @@ async function login(){
     
     if(!response.ok){
         document.getElementById('erroSenha').innerText = 'Email ou senha inválidos';
+        document.getElementById('loading').style.display = 'none';
         throw new Error('Erro ao logar');
     }
 
     const data = await response.json();
+    document.getElementById('loading').style.display = 'none';
     console.log(data);
     localStorage.setItem("user", JSON.stringify(data));
     window.location.href = '../nota/nota.html';

@@ -106,6 +106,7 @@ function adicionaNota(){
         document.getElementById('descricaoError').innerText = '';
     }
 
+    document.getElementById('loadingAdd').style.display = 'block';
     const dataCriacao = new Date().toLocaleDateString();
 
     const nota = {
@@ -124,6 +125,7 @@ function adicionaNota(){
         body: JSON.stringify(nota)
     })
     .then(response => {
+        document.getElementById('loadingAdd').style.display = 'none';
         if(response.ok){
             getNotas(URLnotas);
             document.getElementById('fechaAdd').click();
@@ -176,6 +178,13 @@ addEventListener('click', function(event){
             </form>
         `;
         document.getElementById('corpoEdit').innerHTML =`
+            <div class="w-75"> 
+                <div class="text-center" id="loadingEdit" style="display: none;">
+                    <div class="spinner-border gradient-border" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </div>
             <button type="button" class="d-none" data-bs-dismiss="modal" id="fechaEdit"></button>
             <button type="button" class="btn btnSalva" onclick="salvarEdit()"><i class="bi bi-clipboard-check"></i></button>
         `;
@@ -209,7 +218,9 @@ function salvarEdit(){
         }
         else{
             document.getElementById('descricaoEditarError').innerText = '';
-        }   
+        }
+        
+        document.getElementById('loadingEdit').style.display = 'block';
 
         const newNota = {
             id: notaAtual.id,
@@ -227,6 +238,7 @@ function salvarEdit(){
             body: JSON.stringify(newNota)
         })
         .then(response => {
+            document.getElementById('loadingEdit').style.display = 'none';
             if(response.ok){
                 getNotas(URLnotas);
                 document.getElementById('fechaEdit').click();
@@ -239,6 +251,7 @@ function salvarEdit(){
 //mostra os dados do perfil
 function addDadosPerfil(){
     var modal = document.getElementById('dadosUser');
+    modal.innerHTML = "";
     modal.innerHTML += `
         <form>
             <fieldset disabled>
@@ -291,6 +304,8 @@ function salvaPerfil(){
         document.getElementById('passwordError').innerText = '';
     }
 
+    document.getElementById('loadingPerfil').style.display = 'block';
+
     const newUser = {
         id: user.id,
         name: user.name,
@@ -306,6 +321,7 @@ function salvaPerfil(){
         body: JSON.stringify(newUser)
     })
     .then(response => {
+        document.getElementById('loadingPerfil').style.display = 'none';
         if(!response.ok){
             alert('Erro ao editar perfil');
         }

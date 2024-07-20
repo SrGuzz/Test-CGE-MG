@@ -17,3 +17,21 @@ h3{
 .titulo{
     background-image: linear-gradient(to right, #ff75e1, #378eff);
 }
+
+.gradient-border {
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(to right, #ff75e1, #378eff);
+    animation: spin 1s linear infinite;
+    -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  }
+  
+@keyframes spin {
+100% {
+    transform: rotate(360deg);
+}
+}
