@@ -1,6 +1,6 @@
 # Noteme
 
-Estamos entusiasmados em apresentar o nosso mais novo aplicativo web de criação de notas, desenvolvido para facilitar a organização e o gerenciamento de suas ideias, lembretes e informações importantes. Este aplicativo foi projetado com uma interface intuitiva e recursos poderosos para atender às necessidades de estudantes, profissionais e qualquer pessoa que precise de uma ferramenta eficaz para anotar e organizar informações.
+Estou entusiasmado em apresentar o nosso mais novo aplicativo web de criação de notas, desenvolvido para facilitar a organização e o gerenciamento de suas ideias, lembretes e informações importantes. Este aplicativo foi projetado com uma interface intuitiva e recursos poderosos para atender às necessidades de estudantes, profissionais e qualquer pessoa que precise de uma ferramenta eficaz para anotar e organizar informações.
 
 ## Autor
 
